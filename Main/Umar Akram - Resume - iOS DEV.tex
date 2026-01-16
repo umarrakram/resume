@@ -1,0 +1,102 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{xcolor}
+
+
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=3pt,topsep=3pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{0.23\textwidth}}
+\newcolumntype{R}{>{\raggedright\arraybackslash}p{0.73\textwidth}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Umar Akram Mirad}}\\[4pt]
+    \href{mailto:uamirad00@gmail.com}{uamirad00@gmail.com} \quad|\quad +20 1023651704 \quad|\quad
+    \\ \href{https://linkedin.com/in/umarrakram}{linkedin.com/in/umarrakram} \quad|\quad
+    \href{https://github.com/umarrakram}{github.com/umarrakram}
+\end{center}
+
+\section*{Professional Summary}
+Results-driven \textbf{iOS Developer} specializing in \textbf{Swift, SwiftUI, UIKit, and Combine}, with a strong foundation in Apple’s Human Interface Guidelines and performance tuning. End-to-end ownership of the app lifecycle—architecture, feature delivery, instrumentation, CI/CD, and App Store deployment. Proven impact building production apps and an IDE-class editor for iPhone and iPad. Adept at API design/integration, secure payments (Apple Pay \& StoreKit), offline storage, and rigorous testing. Passionate about shipping delightful, accessible, and maintainable iOS experiences.
+
+
+\section*{Education}
+\textbf{B.Sc. in Computer Science \& Information Technology} (Expected Jun 2026) \\
+Egypt-Japan University of Science and Technology — Alexandria, Egypt \\
+\emph{Relevant Coursework:} Mobile App Development, Data Structures \& Algorithms, Software Engineering, Machine Learning
+
+\section*{Core Skills}
+\textbf{Languages/Frameworks:} Swift, SwiftUI, Combine, UIKit, Objective-C (basic), Python, C++ \\
+\textbf{iOS SDKs:} Core Data, Core Animation, Core Location, WebKit, PassKit, StoreKit, AVFoundation \\
+\textbf{Architecture:} MVVM, Clean Architecture, Dependency Injection, modular frameworks, Swift Concurrency (async/await) \\
+\textbf{Networking:} REST/JSON, URLSession, Vapor (server), Codable, Request/Response caching, ETags \\
+\textbf{Data:} Core Data, Realm (familiar), SQLite, background sync, migrations \\
+\textbf{Tooling:} Xcode, Instruments (Time Profiler, Allocations, Leaks), Firebase, Git, Fastlane, Bitrise, TestFlight, Postman \\
+\textbf{Testing:} XCTest, XCUITest, snapshot tests, builders/mocks, TDD principles, CI test plans \\
+\textbf{Other:} Localization (Arabic/English), Accessibility, Agile/Scrum, App Store deployment, Privacy \& Security
+
+\section*{Professional Experience}
+\textbf{Onvo} \hfill \textit{Remote - Egypt} \\
+\textit{iOS Developer} \hfill \textit{Feb 2024 -- Nov 2024}\\
+\smallskip
+\href{https://apps.apple.com/us/app/onvo-limitless-discoveries/id6474696334}{\textit{Link on App Store}}
+\begin{itemize}
+  \item Designed and shipped SwiftUI-based social/creative features (profiles, music/movie suggestions, drawing messages), driving a \textbf{40\% lift in DAU}.
+  \item Implemented \textbf{Apple Pay (PassKit)} and \textbf{StoreKit} for one-time \& subscription purchases; added receipt validation and server-side verification, reducing payment failures and improving checkout conversion.
+  \item Refactored network layer and REST integration with \textbf{Vapor} back-end: introduced response caching, request coalescing, and retry/backoff—cutting P50 latency by \textbf{50\%}.
+  \item Built adaptive streaming via \textbf{WebKit} and AVFoundation; tuned buffer sizes and ABR heuristics to reduce startup latency by \textbf{35\%}.
+  \item Migrated legacy MVC to \textbf{MVVM + Combine} modules; introduced feature flags, dependency injection, and snapshot testing to raise code coverage and simplify rollbacks.
+  \item Raised product quality with Instruments (leak detection, time profiler), on-device logging, crash triage, and performance budgets (cold start, scroll FPS, memory).
+  \item Led code reviews and knowledge-sharing sessions on Swift Concurrency, result builders, and diffable data sources; aligned UI with Apple’s HIG and accessibility best practices.
+\end{itemize}
+
+\section*{Selected Projects}
+\textbf{Axios — IDE-Class Code/Text Editor for iPhone \& iPad} \hfill \textit{SwiftUI, UIKit, Combine, WebKit, C++, Node.js}\\
+\smallskip
+\href{https://apps.apple.com/us/app/axios-code/id6569246357}{\textit{Link on App Store}}
+\begin{itemize}
+  \item Built a \textbf{complete text/code editor} that runs on iPhone and iPad, designed as a practical \textbf{VS Code replacement on iOS}.
+  \item Implemented custom \textbf{text highlighting algorithms} (incremental lexing + on-the-fly tokenization) for responsive, large-file editing; optimized attributed-string pipelines and layout invalidation for 60~fps scrolling.
+  \item Integrated \textbf{Node.js runtime} for project execution (\texttt{npm} workflows, GitHub repo cloning, package management) with sandboxed I/O; bridged output to SwiftUI terminals via Combine publishers.
+  \item Embedded \textbf{C++ toolchain/compilers} for offline experiments; bridged to Swift with \texttt{extern "C"} shims and background execution via OperationQueues/GCD.
+  \item Added multi-pane editing (split view), search/replace with regex, minimap, auto-completion hooks, bracket matching, snippets, theming, and command palette.
+  \item Crafted a robust file abstraction (local + iCloud Drive) with safe saves, conflict detection, and background indexing; designed a plug-in protocol for future language servers.
+  \item Hardened the app with sandboxes, capability scoping, and crash containment; integrated analytics for session funnels, editor latency, and cold start timing.
+  \item Built release automation: versioning, release notes, screenshots, TestFlight distribution; instrumented editor KPIs and crash regression gates in CI.
+\end{itemize}
+
+\vspace{8pt}
+
+\textbf{Swiss Pairing System — Chess Tournament Management} \hfill \textit{React, Node.js, Express, MongoDB}\\
+\smallskip
+\href{https://github.com/umarrakram/SwissPairingSystem}{\textit{View on GitHub}} \quad|\quad \href{https://swiss-pairing-system.vercel.app}{\textit{Live Demo}}
+\begin{itemize}
+  \item Built a \textbf{full-stack web application} for managing chess tournaments using the Swiss pairing algorithm with automated round generation and real-time standings.
+  \item Implemented \textbf{React 18} frontend with React Router 6 for seamless navigation; designed admin dashboard for tournament creation, player management (individual/bulk Excel upload), and match result recording.
+  \item Developed \textbf{RESTful API} with Node.js/Express backend and MongoDB for persistent storage; integrated Multer for file uploads and XLSX parsing for bulk player imports.
+  \item Engineered Swiss pairing algorithm with tiebreak calculations (Buchholz, Sonneborn-Berger) and match scheduling system; enabled public viewing links for tournament transparency.
+  \item Deployed to \textbf{Vercel} with serverless functions for backend and static hosting for frontend; configured MongoDB Atlas for production database with environment-based configuration.
+  \item Designed responsive UI with clean UX for admins and participants; implemented authentication system with secure admin credentials and role-based access control.
+\end{itemize}
+
+\vspace{8pt}
+
+\textbf{WeatherSnap — Forecast App} \hfill \textit{SwiftUI, Combine, Core Location, OpenWeatherMap}
+\begin{itemize}
+  \item Reactive pipeline with Combine (debounce, retry, backpressure) and background refresh; GPS-based forecasts with robust permission and error handling.
+  \item Lottie-powered weather transitions and composable SwiftUI components; designed offline cache, stale-data policies, and graceful degradation.
+\end{itemize}
+
+\section*{Notable Achievements}
+\begin{itemize}
+  \item \textbf{2 iOS apps published} with strong adoption and user feedback; cumulative \textbf{100K+ downloads} and \textasciitilde4.4/5 rating history.
+  \item Repeated wins reducing app startup, API latency, and crash rate through profiling, refactors, and CI gates.
+\end{itemize}
+
+\end{document}
