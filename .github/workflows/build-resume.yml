@@ -1,0 +1,39 @@
+name: Build Resume and Preview
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.tex'  # Triggers only when .tex files change
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          # We use quotes here to handle the spaces in your filename
+          root_file: "Umar Akram - Resume - iOS DEV.tex"
+
+      - name: Install Poppler
+        run: sudo apt-get install -y poppler-utils
+
+      - name: Generate Preview Image
+        # 1. We quote the input PDF name so spaces don't break the command
+        # 2. We output a clean simple filename: resume-preview.png
+        run: pdftoppm -png -f 1 -l 1 -singlefile "Umar Akram - Resume - iOS DEV.pdf" resume-preview
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-compile Resume and Preview [skip ci]"
+          # We specifically list the PDF (quoted) and the PNG to avoid committing .log/.aux files
+          file_pattern: '"Umar Akram - Resume - iOS DEV.pdf" resume-preview.png'
