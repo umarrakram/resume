@@ -6,6 +6,12 @@ on:
       - main
     paths:
       - '**.tex'
+      - '.github/workflows/build-resume.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: build-resume-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build_and_preview:
@@ -20,19 +26,23 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          # Updated to match the new filename (No spaces!)
           root_file: Umar_Akram_iOS_Dev.tex
 
       - name: Install Poppler
-        run: sudo apt-get install -y poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
 
       - name: Generate Preview Image
-        # Converts the new PDF to resume-preview.png
-        run: pdftoppm -png -f 1 -l 1 -singlefile Umar_Akram_iOS_Dev.pdf resume-preview
+        run: pdftoppm -png -r 150 -f 1 -l 1 -singlefile Umar_Akram_iOS_Dev.pdf resume-preview
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-compile Resume and Preview [skip ci]"
-          # Commits the new PDF and the Preview image
           file_pattern: "Umar_Akram_iOS_Dev.pdf resume-preview.png"
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: Umar_Akram_iOS_Dev.pdf
+          retention-days: 30
